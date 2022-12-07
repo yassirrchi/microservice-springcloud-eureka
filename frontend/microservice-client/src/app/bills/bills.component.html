@@ -1,0 +1,30 @@
+<p class="bg-danger">clients works!</p>
+ 
+<div class="container">
+    <div class="card"  >
+        <div class="card-header bill-bg  text-center text-light header-text">Bills list</div>
+        <div class="card-body">
+             
+            <table class="table">
+                <thead>
+                    <tr><th>Billing Date</th><th> Product Name</th><th>Price</th><th>Quantity</th> </tr>
+                </thead>
+                 
+
+                <tbody> 
+                    <tr *ngFor="let bill of bills">
+                        <td>{{bill.billingDate | date:'medium'}}</td>
+                        <td>{{bill.customer}}</td>
+                        <td>{{bill.customerId}}</td>
+                             
+                    </tr>
+                </tbody>
+
+            </table>
+             
+
+        </div>
+
+    </div>
+
+ </div>
