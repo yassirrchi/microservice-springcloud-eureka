@@ -17,7 +17,7 @@ public class ProductItem {
     private Long id;
     private double quantity;
     private double price;
-    private long productID;
+    private Long productID;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     private Bill bill;

@@ -7,5 +7,5 @@ public class Product {
     private Long id;
     private String name;
     private double price;
-    private double quanity;
+    private double quantity;
 }

@@ -31,21 +31,35 @@ public class BillingServiceApplication {
 							CustomerRestClient customerRestClient, ProductItemRestClient productItemRestClient){
 		return args -> {
 
-			System.out.println("----------------------------------");
+			System.out.println("--------------here--------------------");
 
 			Customer customer=customerRestClient.getCustomerById(1L);
-			Bill bill=billRepository.save(new Bill(null,new Date(),null, customer.getId(), null));
+			Customer customer2=customerRestClient.getCustomerById(2L);
+			System.out.println(customer.getEmail());
+			System.out.println("--------------done--------------------");
+
+			Bill bill=billRepository.save(new Bill(null,new Date(),null, customer.getId(), customer));
+
+
 			PagedModel<Product> productPagedModel=productItemRestClient.pageProduct();
+
 			productPagedModel.forEach(p->{
 				ProductItem productItem=new ProductItem();
 				productItem.setPrice(p.getPrice());
 				productItem.setQuantity(new Random().nextInt(100));
 				productItem.setBill(bill);
+
+
+
 				productItem.setProductID(p.getId());
 				productItemRepository.save(productItem);
 			});
+
+
+
 			System.out.println(customer.getName());
 			System.out.println(customer.getEmail());
+
 
 		};
 	}
