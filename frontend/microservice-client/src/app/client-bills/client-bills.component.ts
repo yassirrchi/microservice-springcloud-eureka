@@ -10,8 +10,9 @@ import { BillingService } from '../services/billing.service';
 })
 export class ClientBillsComponent implements OnInit {
   id!:number;
-  sum!:number;
+  sum:number=0;
   Bills!:bill;
+  calc:any;
 
 
   constructor(private route:ActivatedRoute,private billingService:BillingService) { }
@@ -21,16 +22,27 @@ export class ClientBillsComponent implements OnInit {
     this.id=this.route.snapshot.params["id"]
     this.billingService.getClientBill(this.id).subscribe((data)=>{
       this.Bills=data
+      this.calc=data
       console.log(this.Bills)
     })
+    setTimeout(() => {
+      this.calculateSum()
 
-    const sun = this.Bills.productItems.reduce((accumulator, obj) => {
-      return accumulator + obj.quantity*obj.price;
-    }, 0);
+    }, 2000);
+    
+     
 
     
 
  
+  }
+
+  calculateSum(){
+    console.log("hnaya")
+    console.log(this.Bills)
+    console.log("------------")
+    this.Bills.productItems.forEach(p=>{this.sum+=p.price*p.quantity})
+     
   }
   
 

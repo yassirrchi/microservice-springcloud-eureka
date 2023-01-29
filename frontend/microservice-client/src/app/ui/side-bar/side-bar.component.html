@@ -1,6 +1,30 @@
+ <nav class="navbar">
+  <div class="nav-button">
+    <button class="logout" *ngIf="token" (click)="logout()"  >logout</button>
+    <button class="login" (click)="login()" *ngIf="!token">Login</button>
+  </div>
+
+ </nav>
+<!--
+
 <div class="sidebar">
-    <a class="clients"routerLink="/clients">clients</a>
-    <a class="products" routerLink="/products">products</a>
-    <a class="bills" routerLink="/bills">Bills</a>
+    <a  class="products" routerLink="/products">products</a>
+    <a *ngIf="token" class="clients"routerLink="/clients">clients  </a>
+    <a *ngIf="token" class="bills" routerLink="/bills">Bills </a>
+    
+    <a *ngIf="!token" class="locked"routerLink="/clients">clients <i  class="bi bi-lock"></i></a>
+    <a *ngIf="!token" class="locked" routerLink="/bills">Bills<i class="bi bi-lock"></i></a>
+    
+    
+    
+     
+    <a role="button" *ngIf="!token" class="login"  >Login</a>
+    <a role="button" *ngIf="token"  class="logout"  >Logout <span></span></a>
+   
+    
     
   </div>
+
+-->
+<app-menu   [token]="token"></app-menu>
+ 

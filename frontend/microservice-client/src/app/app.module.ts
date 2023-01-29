@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BillsComponent } from './bills/bills.component';
 import { ClientBillsComponent } from './client-bills/client-bills.component';
 import { ProductsComponent } from './products/products.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import { ProductsComponent } from './products/products.component';
     ClientsComponent,
     BillsComponent,
     ClientBillsComponent,
-    ProductsComponent
+    ProductsComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    OAuthModule.forRoot(),
     HttpClientModule
   ],
   providers: [],

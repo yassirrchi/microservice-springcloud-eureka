@@ -1,0 +1,9 @@
+<div class="menu" *ngIf="!clicked">
+    <div class="flex-container">
+        <a  routerLink="/products" (click)="clickedmenu()"><div class="option products"><img class="menu-icone" src="https://uxwing.com/wp-content/themes/uxwing/download/business-professional-services/product-icon.png"><h4>Products</h4></div></a>
+        <a *ngIf="token" routerLink="/clients" (click)="clickedmenu()"><div class="option clients"><img class="menu-icone" src="https://cdn-icons-png.flaticon.com/512/32/32441.png"><h4>Customers</h4></div> </a> 
+    
+        <a *ngIf="token" routerLink="/bills" (click)="clickedmenu()"><div class="option bills"><img class="menu-icone" src="https://cdn-icons-png.flaticon.com/512/3142/3142603.png"><h4>Bills</h4></div></a>
+</div>
+
+  </div>

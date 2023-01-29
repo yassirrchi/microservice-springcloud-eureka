@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { bill } from '../model/bill.model';
 import { BillingService } from '../services/billing.service';
 
@@ -11,7 +12,7 @@ export class BillsComponent implements OnInit {
   bills!:bill[]
 
 
-  constructor(private billingService:BillingService) { }
+  constructor(private billingService:BillingService,private router:Router) { }
 
   ngOnInit(): void {
     this.billingService.getAllBills().subscribe((data)=>{
@@ -19,6 +20,10 @@ export class BillsComponent implements OnInit {
        
       console.log(this.bills)
     })
+  }
+  goToCustomerBills(billid:number){
+    this.router.navigateByUrl("clients/bills/"+billid)
+
   }
 
 }

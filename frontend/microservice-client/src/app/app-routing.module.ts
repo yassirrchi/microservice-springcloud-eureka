@@ -4,8 +4,10 @@ import { BillsComponent } from './bills/bills.component';
 import { ClientBillsComponent } from './client-bills/client-bills.component';
 import { ClientsComponent } from './clients/clients.component';
 import { ProductsComponent } from './products/products.component';
+import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
+  {path:"",component:MenuComponent},
   {path:"clients",component:ClientsComponent},
   {path:"bills",component:BillsComponent},
   {path:"clients/bills/:id",component:ClientBillsComponent},

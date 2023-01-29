@@ -1,13 +1,14 @@
-<p class="bg-danger">clients works!</p>
+ 
  
 <div class="container text-center">
     <div class="card"  >
-        <div class="card-header bg-dark text-light">Billed on {{Bills.billingDate | date:'medium'}}</div>
+        <div class="card-header bg-dark text-light">{{Bills.customer.name}} was Billed on {{Bills.billingDate | date:'medium'}}</div>
         <div class="card-body">
              
-            <table class="table">
+            <table class="table" *ngIf="Bills">
                 <thead>
-                    <tr><th>Product id</th><th> Product Name</th><th>Price</th><th>Quantity</th><th>total</th> </tr>
+                    <tr *ngIf="!Bills"><th>Product id</th><th> Product Name</th><th>Price</th><th>Quantity</th><th>total</th> </tr>
+                     
                 </thead>
                  
 
@@ -19,7 +20,7 @@
                         <td>{{product.quantity}}</td>    
                         <td class="bg-info text-light">{{product.quantity*product.price}}</td>     
                     </tr>
-                    <tr><td></td><td></td><td></td><td></td><td>{{sum}}</td></tr>
+                    <tr class="bg-danger text-light"><td>Total</td><td></td><td></td><td></td><td ><span *ngIf="sum==0">Calculating</span><span *ngIf="sum!=0">{{sum}}</span></td></tr>
                 </tbody>
 
             </table>

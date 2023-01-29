@@ -1,21 +1,20 @@
-<p class="bg-danger">clients works!</p>
- 
+  
 <div class="container">
     <div class="card"  >
-        <div class="card-header bg-products  text-center text-light header-text">Products List</div>
+        <div class="card-header bg-products  text-center text-light header-text">Inventory Service</div>
         <div class="card-body">
              
             <table class="table">
-                <thead>
-                    <tr><th>product id</th><th> product Name</th><th>quanity</th><th>price</th></tr>
+                <thead class="text-danger">
+                    <tr><th>Id</th><th>Name</th><th>quanity in Stock</th><th>$/Unite </th></tr>
                 </thead>
                 <tbody>
                      
                     <tr *ngFor="let product of Products">
-                        <td>{{product.id}}</td>
-                        <td>{{product.name}}</td>
-                        <td>{{product.quantity}}</td>
-                        <td>{{product.price}}</td>
+                        <td class="bg-info text-light">#{{product.id}}</td>
+                        <td class="bg-info text-light">{{product.name}}</td>
+                        <td class="bg-warning text-light">{{product.quantity}}</td>
+                        <td class="bg-success text-light">{{product.price}}</td>
                          
                          
                     </tr>
