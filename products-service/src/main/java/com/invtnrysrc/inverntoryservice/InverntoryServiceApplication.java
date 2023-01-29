@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,10 +22,12 @@ public class InverntoryServiceApplication {
         SpringApplication.run(InverntoryServiceApplication.class, args);
     }
     @Bean
-    CommandLineRunner start(ProductRepo productRepo){
-        productRepo.save(new Product(null,"cocacolla",23,22));
-        productRepo.save(new Product(null,"bepis",21,22));
-        productRepo.save(new Product(null,"chamoy",1,0));
+    CommandLineRunner start(ProductRepo productRepo, RepositoryRestConfiguration restConfiguration){
+        restConfiguration.exposeIdsFor(Product.class);
+        productRepo.save(new Product(null,"Ceramic Lion Statue",44,330));
+        productRepo.save(new Product(null,"Canon Marocain d Essaouira",30,592));
+        productRepo.save(new Product(null,"Bateau en bois dargane",320,21));
+        productRepo.save(new Product(null,"Tajine en bois",10,341));
         productRepo.findAll().forEach(product -> {System.out.println(product);});
         return null;
     }
